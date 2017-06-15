@@ -25,12 +25,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <SupportUrl>http:\\www.sepp.space</SupportUrl>
-    <ProductName>SeppClient</ProductName>
+    <SupportUrl>http:\\sepp.space</SupportUrl>
+    <ProductName>SEPP Client</ProductName>
     <PublisherName>Sepp Tools</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.6.4.%2a</ApplicationVersion>
+    <ApplicationVersion>2.6.4.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -204,33 +204,33 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="SeppClient_TemporaryKey.pfx" />
-    <None Include="tessdata\eng.cube.bigrams">
+    <Content Include="tessdata\eng.cube.bigrams">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tessdata\eng.cube.fold">
+    </Content>
+    <Content Include="tessdata\eng.cube.fold">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tessdata\eng.cube.lm">
+    </Content>
+    <Content Include="tessdata\eng.cube.lm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tessdata\eng.cube.nn">
+    </Content>
+    <Content Include="tessdata\eng.cube.nn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tessdata\eng.cube.params">
+    </Content>
+    <Content Include="tessdata\eng.cube.params">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tessdata\eng.cube.size">
+    </Content>
+    <Content Include="tessdata\eng.cube.size">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tessdata\eng.cube.word-freq">
+    </Content>
+    <Content Include="tessdata\eng.cube.word-freq">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tessdata\eng.tesseract_cube.nn">
+    </Content>
+    <Content Include="tessdata\eng.tesseract_cube.nn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tessdata\eng.traineddata">
+    </Content>
+    <Content Include="tessdata\eng.traineddata">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="x64\cvextern.dll">
