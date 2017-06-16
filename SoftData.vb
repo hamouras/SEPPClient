@@ -54,7 +54,7 @@ Module SoftData
                 End If
             Next
         Catch ex As Exception
-            MsgBox("Something went wrong with OCR - Try Again")
+            MsgBox("Something went wrong with OCR - Try Again" + vbNewLine + ex.Message)
         End Try
         procOCRTextChange = True
     End Sub
