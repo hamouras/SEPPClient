@@ -183,7 +183,7 @@ Public Class SeppClient
         Dim graph As Graphics
         Dim overScan As Double = CInt(Parameters.getParameter("overScan")) / 100
         bounds = Screen.PrimaryScreen.Bounds
-        screenshot = New System.Drawing.Bitmap(CInt((bounds.Width * overScan) / 2.5), CInt(bounds.Height * overScan), System.Drawing.Imaging.PixelFormat.Format32bppArgb) ' Format32bppArgb
+        screenshot = New System.Drawing.Bitmap(CInt((bounds.Width * overScan) / 3), CInt(bounds.Height * overScan), System.Drawing.Imaging.PixelFormat.Format24bppRgb) ' Format32bppArgb
         graph = Graphics.FromImage(screenshot)
         graph.CopyFromScreen(CInt(bounds.X * overScan), CInt(bounds.Y * overScan), 0, 0, bounds.Size, CopyPixelOperation.SourceCopy)
         completeEDScreen(screenshot)
@@ -203,25 +203,21 @@ Public Class SeppClient
         ocrWorking.Visible = True
         ocrWorking.Refresh()
         Dim resize As Double = (resizeSlider.Value / 4) + 1
+        Dim procBitmap As Bitmap
         If resize > 1 Then
-            Dim procBitmap As New Bitmap(CInt(screenshot.Width * resize), CInt(screenshot.Height * resize))
+            procBitmap = New Bitmap(CInt(screenshot.Width * resize), CInt(screenshot.Height * resize))
             Dim grBitmap As Graphics = Graphics.FromImage(procBitmap)
             grBitmap.DrawImage(screenshot, 0, 0, procBitmap.Width + 1, procBitmap.Height + 1)
-            If BlackAndWhile.Checked Then
-                Dim procImg As Bitmap = toGrayScale(procBitmap)
-                Call Global.SeppClient.procEDScreen(procImg)
-                EDCapture.Image = procImg
-            Else
-                Call Global.SeppClient.procEDScreen(procBitmap)
-                EDCapture.Image = procBitmap
-            End If
-        ElseIf BlackAndWhile.Checked Then
-            Dim procImg As Bitmap = toGrayScale(screenshot)
+        Else
+            procBitmap = screenshot
+        End If
+        If BlackAndWhile.Checked Then
+            Dim procImg As Bitmap = toGrayScale(procBitmap)
             Call Global.SeppClient.procEDScreen(procImg)
             EDCapture.Image = procImg
         Else
-            Call Global.SeppClient.procEDScreen(screenshot)
-            EDCapture.Image = screenshot
+            Call Global.SeppClient.procEDScreen(procBitmap)
+            EDCapture.Image = procBitmap
         End If
         EDCapture.Refresh()
         ocrWorking.Visible = False
